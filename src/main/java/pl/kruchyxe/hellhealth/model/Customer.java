@@ -3,8 +3,8 @@ package pl.kruchyxe.hellhealth.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="users")
-public class User {
+@Table(name="customers")
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,10 +22,10 @@ public class User {
     @Column
     private int weight;
 
-    public User() {
+    public Customer() {
     }
 
-    public User(int id, String firstname, String lastname, int age, int weight) {
+    public Customer(int id, String firstname, String lastname, int age, int weight) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;

@@ -2,22 +2,21 @@ package pl.kruchyxe.hellhealth.dto;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import pl.kruchyxe.hellhealth.model.GroceryList;
-import pl.kruchyxe.hellhealth.model.User;
+import pl.kruchyxe.hellhealth.model.Customer;
 
 @Mapper(componentModel = "spring")
-public interface UserMapper {
+public interface CustomerMapper {
 
     @Mapping(source = "firstname", target = "firstname", qualifiedByName = "firstname")
     @Mapping(source = "lastname", target = "lastname", qualifiedByName = "lastname")
     @Mapping(source = "age", target = "age", qualifiedByName = "age")
     @Mapping(source = "weight", target = "weight", qualifiedByName = "weight")
-    UserDto toDto(User user);
+    CustomerDto toDto(Customer customer);
 
     @Mapping(source = "firstname", target = "firstname", qualifiedByName = "firstname")
     @Mapping(source = "lastname", target = "lastname", qualifiedByName = "lastname")
     @Mapping(source = "age", target = "age", qualifiedByName = "age")
     @Mapping(source = "weight", target = "weight", qualifiedByName = "weight")
-    User toEntity(UserDto userDto);
+    Customer toEntity(CustomerDto customerDto);
 
 }

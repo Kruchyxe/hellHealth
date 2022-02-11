@@ -4,7 +4,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class UserDto {
+public class CustomerDto {
 
     @NotNull
     @Size(min = 1)
@@ -26,10 +26,10 @@ public class UserDto {
     @Size(min=1, max = 3)
     private int weight;
 
-    public UserDto() {
+    public CustomerDto() {
     }
 
-    public UserDto(int id, String firstname, String lastname, int age, int weight) {
+    public CustomerDto(int id, String firstname, String lastname, int age, int weight) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
