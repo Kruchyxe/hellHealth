@@ -16,6 +16,9 @@ public class Customer {
     @Column(name = "last_name")
     private String lastname;
 
+    @Column(name = "customer_gender")
+    private String gender;
+
     @Column
     private int age;
 
@@ -25,12 +28,14 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int id, String firstname, String lastname, int age, int weight) {
+    public Customer(int id, String firstname, String lastname, int age, String gender, int weight) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.gender = gender;
         this.age = age;
         this.weight = weight;
+
     }
 
     public long getId() {
@@ -45,15 +50,19 @@ public class Customer {
         return firstname;
     }
 
-    public void setName(String firstname) {
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
-    public String getSurename() {
+    public String getLastname() {
         return lastname;
     }
 
-    public void setSurename(String lastname) {
+    public void setLastname(String lastname) {
         this.lastname = lastname;
     }
 
@@ -71,6 +80,14 @@ public class Customer {
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     @Override

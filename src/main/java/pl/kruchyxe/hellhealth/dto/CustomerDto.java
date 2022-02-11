@@ -26,15 +26,23 @@ public class CustomerDto {
     @Size(min=1, max = 3)
     private int weight;
 
+    @NotBlank
+    @Size(min = 1)
+    private String gender;
+
     public CustomerDto() {
     }
 
-    public CustomerDto(int id, String firstname, String lastname, int age, int weight) {
+    public CustomerDto(
+            int id, String firstname,
+            String lastname, int age,
+            int weight, String gender) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
         this.weight = weight;
+        this.gender = gender;
     }
 
     public int getId() {
@@ -75,5 +83,13 @@ public class CustomerDto {
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
