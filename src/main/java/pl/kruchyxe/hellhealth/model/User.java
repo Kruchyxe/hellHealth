@@ -10,11 +10,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column
-    private String name;
+    @Column(name = "first_name")
+    private String firstname;
 
-    @Column
-    private String surename;
+    @Column(name = "last_name")
+    private String lastname;
 
     @Column
     private int age;
@@ -25,10 +25,10 @@ public class User {
     public User() {
     }
 
-    public User(int id, String name, String surename, int age, int weight) {
+    public User(int id, String firstname, String lastname, int age, int weight) {
         this.id = id;
-        this.name = name;
-        this.surename = surename;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.age = age;
         this.weight = weight;
     }
@@ -42,19 +42,19 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getSurename() {
-        return surename;
+        return lastname;
     }
 
-    public void setSurename(String surename) {
-        this.surename = surename;
+    public void setSurename(String lastname) {
+        this.lastname = lastname;
     }
 
     public int getAge() {
@@ -77,8 +77,8 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", surename='" + surename + '\'' +
+                ", name='" + firstname + '\'' +
+                ", surename='" + lastname + '\'' +
                 ", age=" + age +
                 ", weight=" + weight +
                 '}';
