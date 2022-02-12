@@ -18,33 +18,16 @@ public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
 
-    private final ModelMapper mapper;
 
-    public CustomerServiceImpl(CustomerRepository customerRepository, ModelMapper mapper) {
+    public CustomerServiceImpl(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
-        this.mapper = mapper;
-    }
-
-    private CustomerDto convertEntityToDto(Customer customer) {
-        mapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.LOOSE);
-        CustomerDto customerDto;
-        customerDto = mapper.map(customer, CustomerDto.class);
-        return customerDto;
-    }
-
-    private Customer convertDtoToEntity(CustomerDto customerDto) {
-        mapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.LOOSE);
-        Customer customer;
-        customer = mapper.map(customerDto, Customer.class);
-        return customer;
     }
 
     @Override
     public Customer addCustomer(CustomerDto customerDto) {
-        Customer customer = convertDtoToEntity(customerDto);
-        return customerRepository.save(customer);
+        Customer student = new Customer(customerDto.getFirstName(), customerDto.getLastName(),
+                customerDto.getAge(), customerDto.getWeight(),customerDto.getGender());
+        return customerRepository.save(student);
     }
 
     @Override
@@ -61,12 +44,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Optional<Customer> get(int id) {
+    public Optional<Customer> get(long id) {
         return customerRepository.findById(id);
     }
 
     @Override
-    public void deleteCustomerById(int id) {
+    public void deleteCustomerById(long id) {
         customerRepository.deleteById(id);
 
     }

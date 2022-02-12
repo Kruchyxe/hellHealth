@@ -85,7 +85,7 @@
                     </label>
                     <input id="gender" class="form-control"
                            required autofocus="autofocus" th:field="*{gender}"/>
-                    <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" >Age error</span>
+                    <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" >Gender error</span>
                 </div>
 
                 <div class="form-group">
@@ -94,7 +94,7 @@
                     </label>
                     <input id="weight" class="form-control"
                            required autofocus="autofocus" th:field="*{weight}"/>
-                    <span th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" >Age error</span>
+                    <span th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" >Weight error</span>
                 </div>
 
 

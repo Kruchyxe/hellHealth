@@ -49,20 +49,20 @@ public class CustomerController {
     }
 
     @GetMapping("/deletecustomer")
-    public String deleteStudent(int id){
+    public String deleteStudent(long id){
         customerService.deleteCustomerById(id);
         return "redirect:/customers";
     }
 
     @GetMapping("/detailscustomer")
-    public String showDetailForm(int id, Model model) {
+    public String showDetailForm(long id, Model model) {
         model.addAttribute("customer", customerService.get(id)
                 .orElseThrow(EntityNotFoundException::new));
         return "detailscustomer";
     }
 
     @GetMapping("/editcustomer")
-    public String showEditForm(int id, Model model) {
+    public String showEditForm(long id, Model model) {
         model.addAttribute("customer", customerService.get(id));
         return "editcustomer";
     }

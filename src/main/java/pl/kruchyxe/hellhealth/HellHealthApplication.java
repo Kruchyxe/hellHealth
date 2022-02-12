@@ -13,10 +13,5 @@ public class HellHealthApplication {
         SpringApplication.run(HellHealthApplication.class, args);
     }
 
-    @Bean
-    public ModelMapper modelMapper(){
-        return new ModelMapper();
-    }
-
 
 }

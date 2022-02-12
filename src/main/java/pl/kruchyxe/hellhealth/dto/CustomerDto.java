@@ -8,7 +8,7 @@ public class CustomerDto {
 
     @NotNull
     @Size(min = 1)
-    private int id;
+    private long id;
 
     @NotNull
     @NotBlank
@@ -33,10 +33,7 @@ public class CustomerDto {
     public CustomerDto() {
     }
 
-    public CustomerDto(
-            int id, String firstName,
-            String lastName, int age,
-            int weight, String gender) {
+    public CustomerDto(long id, String firstName, String lastName, int age, int weight, String gender) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,28 +42,28 @@ public class CustomerDto {
         this.gender = gender;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getFirstname() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstName = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastName = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getAge() {

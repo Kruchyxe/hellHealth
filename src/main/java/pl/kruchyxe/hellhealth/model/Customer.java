@@ -39,10 +39,10 @@ public class Customer {
 
     }
 
-    public Customer(String firstname, String lastname, int age, int weight, String gender) {
+    public Customer(String firstName, String lastName, int age, int weight, String gender) {
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -50,24 +50,28 @@ public class Customer {
         this.id = id;
     }
 
-    public String getName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public String getFirstname() {
-        return firstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstName = firstname;
-    }
-
-    public String getLastname() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastName = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public int getAge() {
@@ -84,24 +88,5 @@ public class Customer {
 
     public void setWeight(int weight) {
         this.weight = weight;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + firstName + '\'' +
-                ", surename='" + lastName + '\'' +
-                ", age=" + age +
-                ", weight=" + weight +
-                '}';
     }
 }
