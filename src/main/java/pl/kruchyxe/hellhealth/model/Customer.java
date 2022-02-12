@@ -1,6 +1,9 @@
 package pl.kruchyxe.hellhealth.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="customers")
@@ -8,21 +11,33 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @NotNull
+    @Size(min = 1)
     private Long id;
 
     @Column(name = "first_name")
+    @NotNull
+    @NotBlank
     private String firstName;
 
     @Column(name = "last_name")
+    @NotNull
+    @NotBlank
     private String lastName;
 
     @Column(name = "customer_gender")
+    @NotBlank
+    @Size(min = 1)
     private String gender;
 
     @Column
+    @NotNull
+    @Size(min = 1)
     private int age;
 
     @Column
+    @NotNull
+    @Size(min=1, max = 3)
     private int weight;
 
     public Customer() {

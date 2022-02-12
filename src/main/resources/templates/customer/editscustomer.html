@@ -8,50 +8,14 @@
           crossorigin="anonymous">
 </head>
 <body>
-<header>
-    nav class="navbar navbar-expand-lg navbar-light bg-light" >
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"></a>
-        <button
-                class="navbar-toggler"
-                type="button"
-                data-mdb-toggle="collapse"
-                data-mdb-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
 
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page">EditCustomer</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{'/home'}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{'/employees'}">Pracownicy</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{'/groups'}">Grupy/Klasy</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{'/inventories'}">Inwentaryzacja</a>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-    </nav>
-</header>
+<div th:include="header :: header"></div>
 
 <main>
 
     <body>
     <div align="left">
-        <form th:action="@{/customers/editcustomer}" method="post" th:object="${customer}">
+        <form th:action="@{/customers/editscustomer}" method="post" th:object="${customer}">
             <input type="hidden" th:field="*{id}">
             <div class="form-group">
                 <label class="control-label" for="firstName">
@@ -90,14 +54,12 @@
 
                 <div class="form-group">
                     <label class="control-label" for="weight">
-                        Płeć
+                        Waga
                     </label>
                     <input id="weight" class="form-control"
                            required autofocus="autofocus" th:field="*{weight}"/>
                     <span th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" >Weight error</span>
                 </div>
-
-
 
 
                 <div class="form-group">
@@ -112,6 +74,7 @@
 
 
 </main>
+<div th:include="footer :: footer"></div>
 
 </body>
 </html>

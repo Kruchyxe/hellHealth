@@ -28,21 +28,21 @@ public class CustomerController {
     @GetMapping()
     public String customerList(Model model) {
         model.addAttribute("customer", customerService.findAllCustomers());
-        return "customers";
+        return "customer/customers";
     }
 
-    @GetMapping("/addcustomers")
+    @GetMapping("/addcustomer")
     public String showAddCustomerForm(Model model) {
         model.addAttribute("customer", new CustomerDto());
-        return "addcustomers";
+        return "customer/addcustomer";
     }
 
-    @PostMapping("/addcustomers")
+    @PostMapping("/addcustomer")
     public String addNewCustomer(@Valid @ModelAttribute("customer") CustomerDto customerDto,
                                  BindingResult bindingResult)
     {
         if (bindingResult.hasErrors()) {
-            return "addcustomers";
+            return "customer/addcustomer";
         }
         customerService.addCustomer(customerDto);
         return "redirect:/customers";
@@ -58,19 +58,19 @@ public class CustomerController {
     public String showDetailForm(long id, Model model) {
         model.addAttribute("customer", customerService.get(id)
                 .orElseThrow(EntityNotFoundException::new));
-        return "detailscustomer";
+        return "customer/detailscustomer";
     }
 
-    @GetMapping("/editcustomer")
+    @GetMapping("/editscustomer")
     public String showEditForm(long id, Model model) {
         model.addAttribute("customer", customerService.get(id));
-        return "editcustomer";
+        return "customer/editscustomer";
     }
 
-    @PostMapping("/editcustomer")
+    @PostMapping("/editscustomer")
     public String editCustomer(@Valid Customer customer, BindingResult bindingResult) {
         if(bindingResult.hasErrors()){
-            return "editcustomer";
+            return "customer/editscustomer";
         }
         customerService.updateCustomer(customer);
         return "redirect:/customers";
