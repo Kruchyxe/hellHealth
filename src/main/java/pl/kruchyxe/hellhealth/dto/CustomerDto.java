@@ -8,7 +8,7 @@ public class CustomerDto {
 
     @NotNull
     @Size(min = 1)
-    private long id;
+    private Long id;
 
     @NotNull
     @NotBlank
@@ -33,8 +33,7 @@ public class CustomerDto {
     public CustomerDto() {
     }
 
-    public CustomerDto(long id, String firstName, String lastName, int age, int weight, String gender) {
-        this.id = id;
+    public CustomerDto(String firstName, String lastName, int age, int weight, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -42,11 +41,11 @@ public class CustomerDto {
         this.gender = gender;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

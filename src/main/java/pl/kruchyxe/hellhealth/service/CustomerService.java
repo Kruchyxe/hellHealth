@@ -12,9 +12,9 @@ public interface CustomerService {
 
     List<CustomerDto> findAllCustomers();
 
-    Optional<Customer> get(long id);
+    Optional<Customer> get(Long id);
 
-    void deleteCustomerById(long id);
+    void deleteCustomerById(Long id);
 
     void updateCustomer(Customer customer);
 

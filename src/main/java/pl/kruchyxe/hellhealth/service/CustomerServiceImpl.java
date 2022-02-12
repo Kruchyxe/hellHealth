@@ -44,12 +44,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Optional<Customer> get(long id) {
+    public Optional<Customer> get(Long id) {
         return customerRepository.findById(id);
     }
 
     @Override
-    public void deleteCustomerById(long id) {
+    public void deleteCustomerById(Long id) {
         customerRepository.deleteById(id);
 
     }
