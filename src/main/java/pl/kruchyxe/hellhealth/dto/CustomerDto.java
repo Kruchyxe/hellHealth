@@ -12,11 +12,11 @@ public class CustomerDto {
 
     @NotNull
     @NotBlank
-    private String firstname;
+    private String firstName;
 
     @NotNull
     @NotBlank
-    private String lastname;
+    private String lastName;
 
     @NotNull
     @Size(min = 1)
@@ -34,12 +34,12 @@ public class CustomerDto {
     }
 
     public CustomerDto(
-            int id, String firstname,
-            String lastname, int age,
+            int id, String firstName,
+            String lastName, int age,
             int weight, String gender) {
         this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
         this.weight = weight;
         this.gender = gender;
@@ -54,19 +54,19 @@ public class CustomerDto {
     }
 
     public String getFirstname() {
-        return firstname;
+        return firstName;
     }
 
     public void setFirstname(String firstname) {
-        this.firstname = firstname;
+        this.firstName = firstname;
     }
 
     public String getLastname() {
-        return lastname;
+        return lastName;
     }
 
     public void setLastname(String lastname) {
-        this.lastname = lastname;
+        this.lastName = lastname;
     }
 
     public int getAge() {

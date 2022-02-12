@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>EditCustomer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<header>
+    nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page">EditCustomer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/home'}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/employees'}">Pracownicy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/groups'}">Grupy/Klasy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/inventories'}">Inwentaryzacja</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    </nav>
+</header>
+
+<main>
+
+    <body>
+    <div align="left">
+        <form th:action="@{/customers/editcustomer}" method="post" th:object="${customer}">
+            <input type="hidden" th:field="*{id}">
+            <div class="form-group">
+                <label class="control-label" for="firstName">
+                    Imię
+                </label>
+                <input id="firstName" class="form-control"
+                       required autofocus="autofocus" th:field="*{firstName}"/>
+                <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" >Name error</span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="lastName">
+                    Nazwisko
+                </label>
+                <input id="lastName" class="form-control"
+                       required autofocus="autofocus" th:field="*{lastName}"/>
+                <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" >Name error</span>
+
+                <div class="form-group">
+                    <label class="control-label" for="age">
+                        Wiek
+                    </label>
+                    <input id="age" class="form-control"
+                           required autofocus="autofocus" th:field="*{age}"/>
+                    <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" >Age error</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="gender">
+                        Płeć
+                    </label>
+                    <input id="gender" class="form-control"
+                           required autofocus="autofocus" th:field="*{gender}"/>
+                    <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" >Age error</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="weight">
+                        Płeć
+                    </label>
+                    <input id="weight" class="form-control"
+                           required autofocus="autofocus" th:field="*{weight}"/>
+                    <span th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" >Age error</span>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success" >Zapisz</button>
+
+                </div>
+        </form>
+    </div>
+    </body>
+
+
+
+
+</main>
+
+</body>
+</html>

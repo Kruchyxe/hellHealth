@@ -34,7 +34,7 @@ public class CustomerController {
     @GetMapping("/addcustomers")
     public String showAddCustomerForm(Model model) {
         model.addAttribute("customer", new CustomerDto());
-        return "addcustomer";
+        return "addcustomers";
     }
 
     @PostMapping("/addcustomers")
@@ -42,7 +42,7 @@ public class CustomerController {
                                  BindingResult bindingResult)
     {
         if (bindingResult.hasErrors()) {
-            return "addcustomer";
+            return "addcustomers";
         }
         customerService.addCustomer(customerDto);
         return "redirect:/customers";

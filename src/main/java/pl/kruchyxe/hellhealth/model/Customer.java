@@ -11,10 +11,10 @@ public class Customer {
     private int id;
 
     @Column(name = "first_name")
-    private String firstname;
+    private String firstName;
 
     @Column(name = "last_name")
-    private String lastname;
+    private String lastName;
 
     @Column(name = "customer_gender")
     private String gender;
@@ -28,11 +28,11 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int id, String firstname, String lastname, int age, String gender, int weight) {
+    public Customer(int id, String firstName, String lastName, int age, String gender, int weight) {
         super();
         this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.gender = gender;
         this.age = age;
         this.weight = weight;
@@ -51,23 +51,23 @@ public class Customer {
     }
 
     public String getName() {
-        return firstname;
+        return firstName;
     }
 
     public String getFirstname() {
-        return firstname;
+        return firstName;
     }
 
     public void setFirstname(String firstname) {
-        this.firstname = firstname;
+        this.firstName = firstname;
     }
 
     public String getLastname() {
-        return lastname;
+        return lastName;
     }
 
     public void setLastname(String lastname) {
-        this.lastname = lastname;
+        this.lastName = lastname;
     }
 
     public int getAge() {
@@ -98,8 +98,8 @@ public class Customer {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + firstname + '\'' +
-                ", surename='" + lastname + '\'' +
+                ", name='" + firstName + '\'' +
+                ", surename='" + lastName + '\'' +
                 ", age=" + age +
                 ", weight=" + weight +
                 '}';
