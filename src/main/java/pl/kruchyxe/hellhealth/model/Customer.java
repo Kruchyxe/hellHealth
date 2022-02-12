@@ -29,6 +29,7 @@ public class Customer {
     }
 
     public Customer(int id, String firstname, String lastname, int age, String gender, int weight) {
+        super();
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -36,6 +37,9 @@ public class Customer {
         this.age = age;
         this.weight = weight;
 
+    }
+
+    public Customer(String firstname, String lastname, int age, int weight, String gender) {
     }
 
     public long getId() {
