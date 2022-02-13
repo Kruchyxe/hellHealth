@@ -25,8 +25,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer addCustomer(CustomerDto customerDto) {
-        Customer student = new Customer(customerDto.getFirstName(), customerDto.getLastName(),
-                customerDto.getAge(), customerDto.getWeight(),customerDto.getGender());
+        Customer student = new Customer(customerDto.getFirstName(), customerDto.getLastName(),customerDto.getGender(),
+                customerDto.getAge(),customerDto.getWeight());
         return customerRepository.save(student);
     }
 

@@ -5,14 +5,14 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Entity
 @Table(name="customers")
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @NotNull
-    @Size(min = 1)
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
     @Column(name = "first_name")
@@ -43,18 +43,13 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(Long id, String firstName, String lastName, int age, String gender, int weight) {
-        super();
+    public Customer(String firstName, String lastName, String gender, int age, int weight) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
         this.age = age;
         this.weight = weight;
-
-    }
-
-    public Customer(String firstName, String lastName, int age, int weight, String gender) {
     }
 
     public Long getId() {

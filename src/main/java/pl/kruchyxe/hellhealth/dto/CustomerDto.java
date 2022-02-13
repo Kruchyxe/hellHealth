@@ -6,8 +6,7 @@ import javax.validation.constraints.Size;
 
 public class CustomerDto {
 
-    @NotNull
-    @Size(min = 1)
+
     private Long id;
 
     @NotNull
@@ -18,6 +17,10 @@ public class CustomerDto {
     @NotBlank
     private String lastName;
 
+    @NotBlank
+    @Size(min = 1)
+    private String gender;
+
     @NotNull
     @Size(min = 1)
     private int age;
@@ -26,19 +29,17 @@ public class CustomerDto {
     @Size(min=1, max = 3)
     private int weight;
 
-    @NotBlank
-    @Size(min = 1)
-    private String gender;
 
     public CustomerDto() {
     }
 
-    public CustomerDto(String firstName, String lastName, int age, int weight, String gender) {
+    public CustomerDto(String firstName, String lastName, String gender, int age, int weight) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.gender = gender;
         this.age = age;
         this.weight = weight;
-        this.gender = gender;
     }
 
     public Long getId() {
@@ -65,6 +66,14 @@ public class CustomerDto {
         this.lastName = lastName;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public int getAge() {
         return age;
     }
@@ -79,13 +88,5 @@ public class CustomerDto {
 
     public void setWeight(int weight) {
         this.weight = weight;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 }
