@@ -6,8 +6,5 @@ import pl.kruchyxe.hellhealth.model.Customer;
 public interface CustomerRepository
         extends JpaRepository<Customer, Long> {
 
-    long count();
-
-
-
+    // count method is extended from JpaRepo
 }
