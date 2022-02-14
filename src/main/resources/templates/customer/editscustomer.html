@@ -61,6 +61,15 @@
                     <span th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" >Weight error</span>
                 </div>
 
+                <div class="form-group">
+                    <label class="control-label" for="height">
+                        Waga
+                    </label>
+                    <input id="height" class="form-control"
+                           required autofocus="autofocus" th:field="*{height}"/>
+                    <span th:if="${#fields.hasErrors('height')}" th:errors="*{height}" >Weight error</span>
+                </div>
+
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-success" >Zapisz</button>

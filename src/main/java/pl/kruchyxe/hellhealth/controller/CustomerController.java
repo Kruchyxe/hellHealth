@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.kruchyxe.hellhealth.dto.CustomerDto;
 import pl.kruchyxe.hellhealth.model.Customer;
 import pl.kruchyxe.hellhealth.service.CustomerService;
+import pl.kruchyxe.hellhealth.service.CustomerServiceImpl;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
@@ -20,8 +21,10 @@ public class CustomerController {
 
     private CustomerService customerService;
 
+
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
+
 
     }
 
@@ -39,8 +42,7 @@ public class CustomerController {
 
     @PostMapping("/addcustomer")
     public String addNewCustomer(@Valid @ModelAttribute("customer") CustomerDto customerDto,
-                                 BindingResult bindingResult)
-    {
+                                 BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "customer/addcustomer";
         }
@@ -49,7 +51,7 @@ public class CustomerController {
     }
 
     @GetMapping("/deletecustomer")
-    public String deleteStudent(long id){
+    public String deleteStudent(long id) {
         customerService.deleteCustomerById(id);
         return "redirect:/customers";
     }
@@ -69,7 +71,7 @@ public class CustomerController {
 
     @PostMapping("/editscustomer")
     public String editCustomer(@Valid Customer customer, BindingResult bindingResult) {
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             return "customer/editscustomer";
         }
         customerService.updateCustomer(customer);

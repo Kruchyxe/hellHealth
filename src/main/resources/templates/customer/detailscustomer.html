@@ -17,8 +17,9 @@
             <th scope="col">Imię</th>
             <th scope="col">Nazwisko</th>
             <th scope="col">Wiek</th>
+            <th scope="col">Płeć</th>
             <th scope="col">Waga</th>
-            <th scope="col">Płec</th>
+            <th scope="col">Wzrost</th>
         </tr>
         </thead>
         <tbody>
@@ -26,8 +27,9 @@
         <td th:text="${customer.firstName}"></td>
         <td th:text="${customer.lastName}"></td>
         <td th:text="${customer.age}"></td>
-        <td th:text="${customer.weight}"></td>
         <td th:text="${customer.gender}"></td>
+        <td th:text="${customer.weight}"></td>
+        <td th:text="${customer.height}"></td>
         </tr>
         </tbody>
     </table>

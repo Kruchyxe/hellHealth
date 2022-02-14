@@ -1,7 +1,5 @@
 package pl.kruchyxe.hellhealth.service;
 
-import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import pl.kruchyxe.hellhealth.dto.CustomerDto;
@@ -25,8 +23,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer addCustomer(CustomerDto customerDto) {
-        Customer student = new Customer(customerDto.getFirstName(), customerDto.getLastName(),customerDto.getGender(),
-                customerDto.getAge(),customerDto.getWeight());
+        Customer student = new Customer(customerDto.getFirstName(), customerDto.getLastName(), customerDto.getGender(),
+                customerDto.getAge(), customerDto.getWeight(), customerDto.getHeight());
         return customerRepository.save(student);
     }
 
@@ -59,4 +57,7 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepository.save(customer);
 
     }
+
+
+
 }

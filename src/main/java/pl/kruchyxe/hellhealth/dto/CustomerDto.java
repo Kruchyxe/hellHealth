@@ -26,20 +26,29 @@ public class CustomerDto {
     private int age;
 
     @NotNull
-    @Size(min=1, max = 3)
+    @Size(min = 1, max = 3)
     private int weight;
+
+    @NotNull
+    @Size(min = 1, max = 3)
+    private int height;
+
 
 
     public CustomerDto() {
     }
 
-    public CustomerDto(String firstName, String lastName, String gender, int age, int weight) {
+    public CustomerDto(String firstName, String lastName, String gender,
+                       int age, int weight, int height) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
         this.age = age;
         this.weight = weight;
+        this.height = height;
+
+
     }
 
     public Long getId() {
@@ -89,4 +98,14 @@ public class CustomerDto {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+
 }

@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name="customers")
+@Table(name = "customers")
 public class Customer {
 
     @Id
@@ -37,19 +37,30 @@ public class Customer {
 
     @Column
     @NotNull
-    @Size(min=1, max = 3)
+    @Size(min = 1, max = 3)
     private int weight;
+
+    @Column
+    @NotNull
+    @Size(min = 1, max = 3)
+    private int height;
+
+
 
     public Customer() {
     }
 
-    public Customer(String firstName, String lastName, String gender, int age, int weight) {
+    public Customer(String firstName, String lastName, String gender, int age, int weight, int height) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
         this.age = age;
         this.weight = weight;
+        this.height = height;
+       ;
+
+
     }
 
     public Long getId() {
@@ -99,4 +110,14 @@ public class Customer {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+
 }
