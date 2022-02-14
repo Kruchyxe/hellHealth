@@ -18,5 +18,6 @@ public interface CustomerService {
 
     void updateCustomer(Customer customer);
 
+    long countCustomer(Long id);
 
 }

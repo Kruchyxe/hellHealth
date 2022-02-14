@@ -58,6 +58,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     }
 
-
-
+    @Override
+    public long countCustomer(Long id) {
+        return customerRepository.count();
+    }
 }

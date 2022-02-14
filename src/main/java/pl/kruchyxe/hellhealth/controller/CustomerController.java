@@ -29,8 +29,9 @@ public class CustomerController {
     }
 
     @GetMapping()
-    public String customerList(Model model) {
+    public String customerList(Long id,Model model) {
         model.addAttribute("customer", customerService.findAllCustomers());
+        model.addAttribute("sum",customerService.countCustomer(id));
         return "customer/customers";
     }
 
