@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("home")
+@RequestMapping()
 public class HomeController {
 
     @GetMapping("/login")
@@ -13,7 +13,7 @@ public class HomeController {
         return "login";
     }
 
-    @GetMapping()
+    @GetMapping("/")
     public String home() {
         return "home";
 
