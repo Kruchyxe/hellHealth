@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>EditCustomer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div th:include="header :: header"></div>
+
+<main>
+
+    <body>
+    <div align="left">
+        <form th:action="@{/customers/editscustomer}" method="post" th:object="${customer}">
+            <input type="hidden" th:field="*{id}">
+            <div class="form-group">
+                <label class="control-label" for="firstName">
+                    Imię
+                </label>
+                <input id="firstName" class="form-control"
+                       required autofocus="autofocus" th:field="*{firstName}"/>
+                <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" >Name error</span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="lastName">
+                    Nazwisko
+                </label>
+                <input id="lastName" class="form-control"
+                       required autofocus="autofocus" th:field="*{lastName}"/>
+                <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" >Name error</span>
+
+                <div class="form-group">
+                    <label class="control-label" for="age">
+                        Wiek
+                    </label>
+                    <input id="age" class="form-control"
+                           required autofocus="autofocus" th:field="*{age}"/>
+                    <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" >Age error</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="gender">
+                        Płeć
+                    </label>
+                    <input id="gender" class="form-control"
+                           required autofocus="autofocus" th:field="*{gender}"/>
+                    <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" >Gender error</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="weight">
+                        Waga
+                    </label>
+                    <input id="weight" class="form-control"
+                           required autofocus="autofocus" th:field="*{weight}"/>
+                    <span th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" >Weight error</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="height">
+                        Waga
+                    </label>
+                    <input id="height" class="form-control"
+                           required autofocus="autofocus" th:field="*{height}"/>
+                    <span th:if="${#fields.hasErrors('height')}" th:errors="*{height}" >Weight error</span>
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success" >Zapisz</button>
+
+                </div>
+        </form>
+    </div>
+    </body>
+
+
+
+
+</main>
+<div th:include="footer :: footer"></div>
+
+</body>
+</html>

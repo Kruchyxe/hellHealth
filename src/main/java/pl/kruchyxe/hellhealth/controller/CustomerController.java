@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.kruchyxe.hellhealth.dto.CustomerDto;
 import pl.kruchyxe.hellhealth.model.Customer;
 import pl.kruchyxe.hellhealth.service.CustomerService;
+import pl.kruchyxe.hellhealth.service.CustomerServiceImpl;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
@@ -20,57 +21,58 @@ public class CustomerController {
 
     private CustomerService customerService;
 
+
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
 
     }
 
     @GetMapping()
-    public String customerList(Model model) {
+    public String customerList(Long id,Model model) {
         model.addAttribute("customer", customerService.findAllCustomers());
-        return "customers";
+        model.addAttribute("sum",customerService.countCustomer(id));
+        return "customer/customers";
     }
 
-    @GetMapping("/addcustomers")
+    @GetMapping("/addcustomer")
     public String showAddCustomerForm(Model model) {
         model.addAttribute("customer", new CustomerDto());
-        return "addcustomer";
+        return "customer/addcustomer";
     }
 
-    @PostMapping("/addcustomers")
+    @PostMapping("/addcustomer")
     public String addNewCustomer(@Valid @ModelAttribute("customer") CustomerDto customerDto,
-                                 BindingResult bindingResult)
-    {
+                                 BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "addcustomer";
+            return "customer/addcustomer";
         }
         customerService.addCustomer(customerDto);
         return "redirect:/customers";
     }
 
     @GetMapping("/deletecustomer")
-    public String deleteStudent(int id){
+    public String deleteStudent(long id) {
         customerService.deleteCustomerById(id);
         return "redirect:/customers";
     }
 
     @GetMapping("/detailscustomer")
-    public String showDetailForm(int id, Model model) {
+    public String showDetailForm(long id, Model model) {
         model.addAttribute("customer", customerService.get(id)
                 .orElseThrow(EntityNotFoundException::new));
-        return "detailscustomer";
+        return "customer/detailscustomer";
     }
 
-    @GetMapping("/editcustomer")
-    public String showEditForm(int id, Model model) {
+    @GetMapping("/editscustomer")
+    public String showEditForm(long id, Model model) {
         model.addAttribute("customer", customerService.get(id));
-        return "editcustomer";
+        return "customer/editscustomer";
     }
 
-    @PostMapping("/editcustomer")
+    @PostMapping("/editscustomer")
     public String editCustomer(@Valid Customer customer, BindingResult bindingResult) {
-        if(bindingResult.hasErrors()){
-            return "editcustomer";
+        if (bindingResult.hasErrors()) {
+            return "customer/editscustomer";
         }
         customerService.updateCustomer(customer);
         return "redirect:/customers";

@@ -1,73 +1,98 @@
 package pl.kruchyxe.hellhealth.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name="customers")
+@Table(name = "customers")
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = IDENTITY)
+    private Long id;
 
     @Column(name = "first_name")
-    private String firstname;
+    @NotNull
+    @NotBlank
+    private String firstName;
 
     @Column(name = "last_name")
-    private String lastname;
+    @NotNull
+    @NotBlank
+    private String lastName;
 
     @Column(name = "customer_gender")
+    @NotBlank
+    @Size(min = 1)
     private String gender;
 
     @Column
+    @NotNull
+    @Size(min = 1)
     private int age;
 
     @Column
+    @NotNull
+    @Size(min = 1, max = 3)
     private int weight;
+
+    @Column
+    @NotNull
+    @Size(min = 1, max = 3)
+    private int height;
+
+
 
     public Customer() {
     }
 
-    public Customer(int id, String firstname, String lastname, int age, String gender, int weight) {
-        super();
+    public Customer(String firstName, String lastName, String gender, int age, int weight, int height) {
         this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.gender = gender;
         this.age = age;
         this.weight = weight;
+        this.height = height;
+       ;
+
 
     }
 
-    public Customer(String firstname, String lastname, int age, int weight, String gender) {
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getName() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public int getAge() {
@@ -86,22 +111,13 @@ public class Customer {
         this.weight = weight;
     }
 
-    public String getGender() {
-        return gender;
+    public int getHeight() {
+        return height;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setHeight(int height) {
+        this.height = height;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + firstname + '\'' +
-                ", surename='" + lastname + '\'' +
-                ", age=" + age +
-                ", weight=" + weight +
-                '}';
-    }
+
 }

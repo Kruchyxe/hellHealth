@@ -1,7 +1,5 @@
 package pl.kruchyxe.hellhealth.service;
 
-import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import pl.kruchyxe.hellhealth.dto.CustomerDto;
@@ -18,33 +16,16 @@ public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
 
-    private final ModelMapper mapper;
 
-    public CustomerServiceImpl(CustomerRepository customerRepository, ModelMapper mapper) {
+    public CustomerServiceImpl(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
-        this.mapper = mapper;
-    }
-
-    private CustomerDto convertEntityToDto(Customer customer) {
-        mapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.LOOSE);
-        CustomerDto customerDto;
-        customerDto = mapper.map(customer, CustomerDto.class);
-        return customerDto;
-    }
-
-    private Customer convertDtoToEntity(CustomerDto customerDto) {
-        mapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.LOOSE);
-        Customer customer;
-        customer = mapper.map(customerDto, Customer.class);
-        return customer;
     }
 
     @Override
     public Customer addCustomer(CustomerDto customerDto) {
-        Customer customer = convertDtoToEntity(customerDto);
-        return customerRepository.save(customer);
+        Customer student = new Customer(customerDto.getFirstName(), customerDto.getLastName(), customerDto.getGender(),
+                customerDto.getAge(), customerDto.getWeight(), customerDto.getHeight());
+        return customerRepository.save(student);
     }
 
     @Override
@@ -61,12 +42,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Optional<Customer> get(int id) {
+    public Optional<Customer> get(Long id) {
         return customerRepository.findById(id);
     }
 
     @Override
-    public void deleteCustomerById(int id) {
+    public void deleteCustomerById(Long id) {
         customerRepository.deleteById(id);
 
     }
@@ -75,5 +56,10 @@ public class CustomerServiceImpl implements CustomerService {
     public void updateCustomer(Customer customer) {
         customerRepository.save(customer);
 
+    }
+
+    @Override
+    public long countCustomer(Long id) {
+        return customerRepository.count();
     }
 }

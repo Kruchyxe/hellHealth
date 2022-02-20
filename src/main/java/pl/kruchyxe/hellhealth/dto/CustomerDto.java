@@ -6,67 +6,81 @@ import javax.validation.constraints.Size;
 
 public class CustomerDto {
 
+
+    private Long id;
+
     @NotNull
+    @NotBlank
+    private String firstName;
+
+    @NotNull
+    @NotBlank
+    private String lastName;
+
+    @NotBlank
     @Size(min = 1)
-    private int id;
-
-    @NotNull
-    @NotBlank
-    private String firstname;
-
-    @NotNull
-    @NotBlank
-    private String lastname;
+    private String gender;
 
     @NotNull
     @Size(min = 1)
     private int age;
 
     @NotNull
-    @Size(min=1, max = 3)
+    @Size(min = 1, max = 3)
     private int weight;
 
-    @NotBlank
-    @Size(min = 1)
-    private String gender;
+    @NotNull
+    @Size(min = 1, max = 3)
+    private int height;
+
+
 
     public CustomerDto() {
     }
 
-    public CustomerDto(
-            int id, String firstname,
-            String lastname, int age,
-            int weight, String gender) {
+    public CustomerDto(String firstName, String lastName, String gender,
+                       int age, int weight, int height) {
         this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
         this.age = age;
         this.weight = weight;
-        this.gender = gender;
+        this.height = height;
+
+
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public int getAge() {
@@ -85,11 +99,13 @@ public class CustomerDto {
         this.weight = weight;
     }
 
-    public String getGender() {
-        return gender;
+    public int getHeight() {
+        return height;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setHeight(int height) {
+        this.height = height;
     }
+
+
 }

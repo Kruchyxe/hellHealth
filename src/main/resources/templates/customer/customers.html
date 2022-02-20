@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div th:include="header :: header"></div>
+
+<main>
+    <table class="table table-hover">
+        <thead>
+        <tr> Liczba klientów: </tr>
+        <a th:text="${sum}"></a>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Imię</th>
+            <th scope="col">Nazwisko</th>
+            <th scope="col">Wiek</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customer : ${customer}">
+            <td th:text="${customer.id}"></td>
+            <td th:text="${customer.firstName}"></td>
+            <td th:text="${customer.lastName}"></td>
+            <td th:text="${customer.age}"></td>
+            <td><a th:href="@{/customers/detailscustomer/(id=${customer.id})}" class="btn btn-outline-primary">Szczegóły</a></td>
+            <td><a th:href="@{/customers/editscustomer/(id=${customer.id})}" class="btn btn-outline-primary">Edytuj</a></td>
+            <td><a th:href="@{/customers/deletecustomer/(id=${customer.id})}" class="btn btn-outline-primary">Usuń</a></td>
+
+        </tr>
+        <div class="form-group">
+            <a th:href="@{/customers/addcustomer}" class="btn btn-secondary">Dodaj klienta</a>
+
+        </div>
+
+        </tbody>
+    </table>
+
+</main>
+
+<div th:include="footer :: footer"></div>
+
+</body>
+</html>

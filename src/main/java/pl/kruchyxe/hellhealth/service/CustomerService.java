@@ -12,10 +12,12 @@ public interface CustomerService {
 
     List<CustomerDto> findAllCustomers();
 
-    Optional<Customer> get(int id);
+    Optional<Customer> get(Long id);
 
-    void deleteCustomerById(int id);
+    void deleteCustomerById(Long id);
 
     void updateCustomer(Customer customer);
+
+    long countCustomer(Long id);
 
 }
